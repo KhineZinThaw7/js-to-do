@@ -7,7 +7,7 @@ var taskArr = [];
 btn.addEventListener('click', function () {
   itemValue = item.value;
   if(itemValue != "") {
-    taskArr.push({ 'task_name': itemValue, 'complete_status' : false });
+    taskArr.push({ 'taskName': itemValue, 'completeStatus' : false });
     console.log(taskArr)
     window.localStorage.setItem("task", JSON.stringify(taskArr));
     item.value = '';
@@ -26,12 +26,12 @@ function showtask() {
   }
   let html = '';
   taskArr.forEach((item, index) => {
-    if(item.complete_status == false) {
+    if(item.completeStatus == false) {
       complete = `  <td><button type="button" onclick="completeTask(${index})" class="btn btn-success">Done</button></td>`;
-      taskValue = `<td>${item.task_name}</td>`;
+      taskValue = `<td>${item.taskName}</td>`;
     }else {
       complete = `  <td><button type="button" onclick="completeTask(${index})" class="btn btn-secondary">UnFinish</button></td>`;
-      taskValue = `<td style="text-decoration: line-through">${item.task_name}</td>`;
+      taskValue = `<td style="text-decoration: line-through">${item.taskName}</td>`;
     }
     html += `<tr>
                   <th>${index + 1}</th>
@@ -47,10 +47,10 @@ function showtask() {
 function completeTask(index) {
   let storeTask = window.localStorage.getItem("task");
   taskArr = JSON.parse(storeTask);
-  if(taskArr[index].complete_status == false){
-      taskArr[index].complete_status = true
+  if(taskArr[index].completeStatus == false){
+      taskArr[index].completeStatus = true
   }else{
-    taskArr[index].complete_status = false;
+    taskArr[index].completeStatus = false;
   }
 
   localStorage.setItem("task", JSON.stringify(taskArr));
