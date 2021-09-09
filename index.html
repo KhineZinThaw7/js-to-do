@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js-To-Do</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-8">
+                <h2>To Do List</h2>
+                <form>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="item" id="item" placeholder="Write the task"/>
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-primary" id="addBtn">Add New</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="to-do-list">
+                    <table class="table table-striped mt-3" id="list">
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/todo.js"></script>
+</body>
+</html>
