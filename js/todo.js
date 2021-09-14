@@ -8,7 +8,7 @@ btn.addEventListener('click', function () {
   itemValue = item.value;
   if(itemValue != "") {
     taskArr.push({ 'taskName': itemValue, 'completeStatus' : false });
-    console.log(taskArr)
+    // console.log(taskArr)
     window.localStorage.setItem("task", JSON.stringify(taskArr));
     item.value = '';
   }
@@ -27,12 +27,13 @@ function showtask() {
   let html = '';
   taskArr.forEach((item, index) => {
     if(item.completeStatus == false) {
-      complete = `  <td><button type="button" onclick="completeTask(${index})" class="btn btn-success">Done</button></td>`;
-      taskValue = `<td>${item.taskName}</td>`;
+      complete = '<td><input type="checkbox" onclick="completeTask('+index+')"></td>';
+      taskValue = '<td>'+item.taskName+'</td>';
     }else {
-      complete = `  <td><button type="button" onclick="completeTask(${index})" class="btn btn-secondary">UnFinish</button></td>`;
-      taskValue = `<td style="text-decoration: line-through">${item.taskName}</td>`;
+      complete = '<td><input type="checkbox" onclick="completeTask('+index+')" checked></td>';
+      taskValue = '<td style="text-decoration: line-through">'+item.taskName+'</td>';
     }
+    
     html += `<tr>
                   <th>${index + 1}</th>
                   ${taskValue}
